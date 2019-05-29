@@ -1,12 +1,12 @@
 # Check if dataset is ready. If not download and unzip
 url<-"https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 #destination zip
-if(!file.exists("./data")) {dir.create("./data")}
+if(!dir.exists("./data")) {dir.create("./data")}
 dest <- paste0(getwd(),"/data/","dataweek4.zip")
 #download zip file
-if (!dir.exists("./data/dataweek4.zip")) {download.file(url,dest)}
+if (!file.exists("./data/dataweek4.zip")) {download.file(url,dest)}
 #unzip file
-unzip(dest)
+if(!dir.exists("./data/UCI HAR Dataset")) {unzip(zipfile = dest, exdir = "./data")}
 
 #read features file
 library(dplyr)
