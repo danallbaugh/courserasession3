@@ -8,7 +8,7 @@ if (!file.exists("./data/dataweek4.zip")) {download.file(url,dest)}
 #unzip file
 if(!dir.exists("./data/UCI HAR Dataset")) {unzip(zipfile = dest, exdir = "./data")}
 
-#read features file
+#load dependant libraries
 library(dplyr)
 library(data.table)
 library(tidyr)
